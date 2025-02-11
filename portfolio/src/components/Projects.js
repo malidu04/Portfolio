@@ -1,44 +1,38 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-//import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import TrackVisibility from "react-on-screen";
 
 export const Projects = () => {
-
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+      title: "Chat App",
+      description: "A real-time chat application that enables users to communicate seamlessly through instant messaging. The app supports both private and group chats, ensuring secure and efficient communication.",
+      githubUrl: "https://github.com/malidu04/ChatApp",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce application built using the MERN stack. This platform allows users to browse products, add them to their cart, and securely purchase items through an integrated payment gateway",
+      githubUrl: "https://github.com/malidu04/Ecommerce_Mern",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      title: "Portfolio Website",
+      description: " A personal portfolio website designed to showcase skills, projects, and experience in a visually appealing manner. The site is optimized for performance and search engines.",
+      githubUrl: "https://github.com/malidu04/Portfolio",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+      title: "Hotel Management System",
+      description: "A web application for hotel management, including room booking, customer management, and an admin dashboard for overseeing operations.",
+      githubUrl: "https://github.com/yourusername/hotel-management-system",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
+      title: "Car Service Management",
+      description: "A service management system designed for vehicle maintenance and repair services. Customers can schedule services, track their vehicle status, and receive notifications.",
+      githubUrl: "https://github.com/yourusername/car-service-management",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      title: "AI Personality Prediction",
+      description: "An AI-powered system that predicts personality traits based on user responses. Utilizes artificial neural networks (ANN) and recurrent neural networks (RNN) to analyze data.",
+      githubUrl: "https://github.com/yourusername/ai-personality-prediction",
     },
   ];
 
@@ -48,51 +42,24 @@ export const Projects = () => {
         <Row>
           <Col size={12}>
             <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Bringing ideas to life through dynamic projects—crafting scalable web applications, intelligent AI solutions, and seamless user experiences with innovation at the core.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <h2>Projects</h2>
+                  <p>
+                    Bringing ideas to life through dynamic projects—crafting scalable web applications, 
+                    intelligent AI solutions, and seamless user experiences with innovation at the core.
+                  </p>
+                  <Row>
+                    {projects.map((project, index) => (
+                      <ProjectCard key={index} {...project} />
+                    ))}
+                  </Row>
+                </div>
+              )}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
     </section>
-  )
-}
+  );
+};

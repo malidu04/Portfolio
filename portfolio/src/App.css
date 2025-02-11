@@ -334,10 +334,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin: 0 auto 15px auto;
 }
 .background-image-left {
-  top: 28%;
   position: absolute;
   bottom: 0;
-  width: 40%;
+  width: 100%;
   z-index: -4;
 }
 
@@ -347,11 +346,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
   background-color: black;
 }
+
 .project h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
   text-align: center;
+  color: white;
 }
+
 .project p {
   color: #B8B8B8;
   font-size: 18px;
@@ -361,115 +363,116 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
   width: 56%;
 }
-.project .nav.nav-pills {
-  width: 72%;
-  margin: 0 auto;
-  border-radius: 50px;
-  background-color: rgb(255 255 255 / 10%);
-  overflow: hidden;
+
+/* Adding spacing between project cards */
+.project .proj-card {
+  padding: 20px;
+  margin-bottom: 30px; /* Adding space between cards */
+  border-radius: 10px;
+  background-color: #2c2c2c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.project .nav.nav-pills .nav-item {
-  width: 33.33333%;
+
+/* Hover effect on cards */
+.project .proj-card:hover {
+  transform: translateY(-10px); /* Card rises on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background-color: #333333; /* Darker background when hovered */
 }
-.project .nav.nav-pills .nav-link {
-  background-color: transparent;
-  border-radius: 0;
-  padding: 17px 0;
-  color: #fff;
-  width: 100%;
-  font-size: 17px;
-  letter-spacing: 0.8px;
-  font-weight: 500;
+
+.project .proj-card:hover .proj-txtx {
+  opacity: 1; /* Show text when hovered */
+  top: 50%;
+}
+
+/* Project text box effect */
+.project .proj-txtx {
   position: relative;
-  transition: 0.3s ease-in-out;
   text-align: center;
-  z-index: 0;
-}
-.project .nav.nav-pills .nav-link::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90.21deg, #050505 -5.91%, #ffffff 111.58%);
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
-}
-.project .nav.nav-pills .nav-link.active::before {
-    width: 100% !important;
-}
-.project .nav.nav-pills .nav-link.active {
-    border: 1px solid rgba(255, 255, 255, 1);
-}
-.nav-link#projects-tabs-tab-first {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 55px 0px 0px 55px;
-}
-.nav-link#projects-tabs-tab-second {
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.nav-link#projects-tabs-tab-third {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0 55px 55px 0;
-}
-.proj-imgbx {
-  position: relative;
-  border-radius: 30px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-.proj-imgbx::before {
-  content: "";
-  background: linear-gradient(90.21deg, #000000 -5.91%, #ffffff 111.58%);
-  opacity: 0.85;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  transition: 0.4s ease-in-out;
-}
-.proj-imgbx:hover::before {
-  height: 100%;
-}
-.proj-txtx {
-  position: absolute;
-  text-align: center;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
   opacity: 0;
+  transition: 0.5s ease-in-out;
   width: 100%;
 }
-.proj-imgbx:hover .proj-txtx {
-  top: 50%;
-  opacity: 1;
-}
-.proj-txtx h4 {
-  font-size: 30px;
+
+.project .proj-txtx h4 {
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1.1em;
+  color: white;
 }
-.proj-txtx span {
+
+.project .proj-txtx span {
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.8px;
+  color: #ccc;
 }
-.background-image-right {
-  top: 20%;
-  position: absolute;
-  bottom: 0;
-  width: 35%;
-  right: 0;
-  z-index: -4;
+
+.project .proj-txtx button {
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
+
+.project .proj-txtx button:hover {
+  background-color: #f08d49; /* Button hover color */
+}
+
+/* Ensure space between the project cards */
+.project .proj-card:nth-child(odd) {
+  margin-right: 15px;
+}
+
+.project .proj-card:nth-child(even) {
+  margin-left: 15px;
+}
+
+/* Added animation to the cards */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation applied to each card */
+.project .proj-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.project .proj-card:nth-child(odd) {
+  animation-delay: 0.3s;
+}
+
+.project .proj-card:nth-child(even) {
+  animation-delay: 0.6s;
+}
+
+/* Ensuring cards stay in grid layout */
+.project .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
 
 /************ Projects Css ************/
 .contact {
-  background: linear-gradient(90.21deg, black -5.91%, #7a7777 111.58%);
+  background: linear-gradient(90.21deg, rgb(255, 255, 255) -5.91%, #000000 111.58%);
   padding: 60px 0 200px 0;
 }
 .contact img {
@@ -542,7 +545,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Footer Css ************/
 .footer {
   padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
+  background-image: url('./assets/img/footer.png');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -600,7 +603,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0 15px;
 }
 .new-email-bx button {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: linear-gradient(90.21deg, #dbd5d8 -5.91%, #000000 111.58%);
   padding: 20px 65px;
   color: #fff;
   font-weight: 500;
